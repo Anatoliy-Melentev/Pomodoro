@@ -1,0 +1,61 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.daycolumn
+  width: 296px
+
+.h3
+  margin: 0px
+  margin-bottom: 14px
+  @include font(24,33,700)
+
+.span
+  margin-top: 14px
+
+.red
+  color: $red
+  font-weight: bold
+
+.daycolumn > div
+  background-color: $greyF4
+
+[data-theme='off']
+  .daycolumn > div
+    background-color: $i-greyF4
+
+.day
+  padding: 25px
+  height: 260px
+  margin-bottom: 32px
+
+.tomato
+  height: 179px
+
+.bigtomato
+  @include size(full,full)
+  @include flex-center()
+
+.datatomato
+  @include size(full,full)
+  @include flex-center()
+  flex-wrap: wrap
+  position: relative
+
+.tIcon
+  margin-bottom: 51px
+
+.x
+  @include font(24,33,700)
+  margin-left: 7px
+  margin-bottom: 51px
+
+.footer
+  @include size(full,51)
+  @include font(24,33,700)
+  background-color: $red
+  position: absolute
+  bottom: 0
+  @include flex-center()
+[data-theme='off']
+  .footer
+    background-color: $i-red

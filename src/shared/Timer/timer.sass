@@ -1,0 +1,42 @@
+@import "../../variables.global"
+@import "../../mixins.global"
+
+.timer
+  width: 733px
+
+.content
+  background-color: $greyF4
+  width: 100%
+  height: 452px
+  display: flex
+  flex-direction: column
+  align-items: center
+[data-theme='off']
+  .content
+    background-color: $i-greyF4
+
+.task
+  text-align: center
+  @include font(16, 17, 500)
+
+.listStyle
+  color: $greyC4
+[data-theme='off']
+  .listStyle
+    color: $i-greyF4
+
+.taskName
+  color: $black
+[data-theme='off']
+  .taskName
+    color: $i-black
+.btns
+  display: flex
+  margin-top: 32px
+
+.btns > *:last-child
+  margin-left: 25px
+
+
+
+

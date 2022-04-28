@@ -1,0 +1,55 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.week
+  @include size(952, 471)
+  background-color: $greyF4
+  position: relative
+
+[data-theme='off']
+  .week
+    background-color: $i-greyF4
+
+.columns
+  @include size(full, 420)
+  top: 0
+  position: absolute
+  @include flex-center()
+  align-items: flex-end
+  margin-left: 15px
+  padding-right: 110px
+
+.footer
+  @include size(full,51)
+  @include font(24,33,700)
+  background-color: $greyEC
+  position: absolute
+  bottom: 0
+  @include flex-center()
+  padding-right: 110px
+
+[data-theme='off']
+  .footer
+    background-color: $i-greyEC
+
+.textDay
+  @include font(24,29,400)
+  width: 110px
+
+.textDay:hover
+  color: $pink
+
+[data-theme='off']
+  .textDay:hover
+    color: $i-pink
+
+.active, .active:hover
+  color: $red
+
+[data-theme='off']
+  .active, .active:hover
+    color: $i-red
+
+.lines
+  height: 420px
+  @include flex-space(evenly, column-reverse)

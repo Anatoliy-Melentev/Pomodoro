@@ -1,0 +1,31 @@
+@import "../../../../variables.global"
+@import "../../../../mixins.global"
+
+
+.level
+  flex: 1
+  background-color: transparent
+  box-sizing: content-box
+
+.line
+  @include size(843, 1)
+  background-color: $black
+  opacity: 0.2
+
+[data-theme='off']
+  .line
+    background-color: $i-black
+
+.value
+  @include font(12, 16, 400)
+  width: 94px
+  float: right
+  display: inline-block
+  height: 100%
+  margin-top: -8px
+
+.level:last-child > .line
+  background-color: transparent
+
+.level:last-child > .value
+  color: transparent

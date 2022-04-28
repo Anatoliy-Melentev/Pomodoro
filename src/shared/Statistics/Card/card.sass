@@ -1,0 +1,84 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.card
+  @include size(405, 179)
+  padding: 25px
+  margin-top: 32px
+  @include flex-space()
+  align-items: center
+  position: relative
+
+.h3
+  margin: 0px
+  margin-bottom: 14px
+  @include font(24,33,700)
+
+.value
+  @include font(72,86,400)
+  white-space: nowrap
+
+.orange
+  background-color: $orange
+
+[data-theme='off']
+  .orange
+    background-color: $i-orange
+
+.orange *
+  stroke: $dark-orange
+  fill: transparent
+
+[data-theme='off']
+  .orange *
+    stroke: $i-dark-orange
+
+.purple
+  background-color: $purple
+
+[data-theme='off']
+  .purple
+    background-color: $i-purple
+
+.purple *
+  stroke: $dark-purple
+  fill: transparent
+
+[data-theme='off']
+  .purple *
+    stroke: $i-dark-purple
+
+.blue
+  background-color: $blue
+
+[data-theme='off']
+  .blue
+    background-color: $i-blue
+
+.blue *
+  stroke: $dark-blue
+  fill: transparent
+
+[data-theme='off']
+  .blue *
+    stroke: $i-dark-blue
+
+.grey
+  background-color: $greyF4
+[data-theme='off']
+  .grey
+    background-color: $i-greyF4
+.grey *
+  stroke: $greyC4
+  fill: transparent
+[data-theme='off']
+  .grey *
+    stroke: $i-greyC4
+
+.icon
+  @include size(115, 115)
+  position: absolute
+  right: 25px
+
+.text
+  z-index: 1

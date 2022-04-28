@@ -1,0 +1,31 @@
+@import "../../../../variables.global"
+@import "../../../../mixins.global"
+
+.allcolumn
+  width: 110px
+  height: 5px
+
+.column
+  @include flex-center(column)
+  @include size(77, 5)
+  background-color: $greyC4
+  min-height: 5px
+  height: 100%
+
+[data-theme='off']
+  .column
+    background-color: $i-greyC4
+
+.full
+  background-color: $pink
+
+[data-theme='off']
+  .full
+    background-color: $i-pink
+
+.full.active
+  background-color: $red
+
+[data-theme='off']
+  .full.active
+    background-color: $i-red

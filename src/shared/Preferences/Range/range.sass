@@ -1,0 +1,130 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.form
+  @include flex-space()
+  flex-wrap: wrap
+  padding: 25px
+  background-color: $greyF4
+  margin-bottom: 32px
+  width: 620px
+
+.setter
+
+.label
+  @include font(24, 33)
+  color: $black
+  font-weight: bold
+  margin-bottom: 25px
+
+.value
+  @include flex-center(column)
+
+.output
+  @include font(72, 86, 400)
+  color: $black
+  width: 100px
+  padding: 0px 5px
+  text-align: center
+  margin-top: -10px
+
+.unit
+  @include font(32, 24, 400)
+  color: $greyD9
+  font-weight: bold
+  width: 100px
+  text-align: center
+
+.range
+  height: 27px
+  -webkit-appearance: none
+  margin: 30px 0 10px
+  width: 330px
+  background-color: transparent
+
+.line
+  @include  flex-center()
+.text
+  width: 50px
+  text-align: center
+  padding: 20px 10px 0px 10px
+
+.range:focus
+  outline: none
+
+.range::-webkit-slider-runnable-track
+  width: 100%
+  height: 1px
+  cursor: pointer
+  box-shadow: 0px 0px 0px $greyC4
+  background: $black
+  border-radius: 0px
+  border: 0px solid $grey99
+
+.range::-webkit-slider-thumb
+  box-shadow: 0px 0px 0px $grey66
+  border: 1px solid $red
+  height: 20px
+  width: 20px
+  border-radius: 10px
+  background: $red
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -10px
+
+.range:focus::-webkit-slider-runnable-track
+  background: $greyC4
+
+.range::-moz-range-track
+  width: 100%
+  height: 1px
+  cursor: pointer
+  box-shadow: 0px 0px 0px $greyC4
+  background: $greyC4
+  border-radius: 0px
+  border: 0px solid $grey99
+
+.range::-moz-range-thumb
+  box-shadow: 0px 0px 0px $grey66
+  border: 1px solid $red
+  height: 20px
+  width: 20px
+  border-radius: 10px
+  background: $red
+  cursor: pointer
+
+.range::-ms-track
+  width: 100%
+  height: 1px
+  cursor: pointer
+  background: transparent
+  border-color: transparent
+  color: transparent
+
+.range::-ms-fill-lower
+  background: $greyC4
+  border: 0px solid $grey99
+  border-radius: 10px
+  box-shadow: 0px 0px 0px $grey66
+
+.range::-ms-fill-upper
+  background: $greyC4
+  border: 0px solid $grey99
+  border-radius: 10px
+  box-shadow: 0px 0px 0px $greyC4
+
+.range::-ms-thumb
+  margin-top: 1px
+  box-shadow: 0px 0px 0px $grey66
+  border: 1px solid $red
+  height: 20px
+  width: 20px
+  border-radius: 10px
+  background: $red
+  cursor: pointer
+
+.range:focus::-ms-fill-lower
+  background: $greyC4
+
+.range:focus::-ms-fill-upper
+  background: $greyC4

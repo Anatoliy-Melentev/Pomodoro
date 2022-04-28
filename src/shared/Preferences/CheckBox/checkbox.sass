@@ -1,0 +1,39 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.form
+  list-style: none
+
+.label
+  vertical-align: middle
+  line-height: 20px
+  @include size(auto,20)
+  display: flex
+  align-items: center
+  cursor: pointer
+  background-color: transparent
+  white-space: nowrap
+  height: 30px
+  &::before
+    content: ''
+    background-color: $white
+    display: inline-block
+    @include size(12,12)
+    border: solid 4px $white
+    box-shadow: 0 0 3px 3px $greyF4
+    margin-right: 10px
+  &:hover
+
+
+  &:hover
+    &::before
+      background-color: $greyF4
+      border: solid 4px $white
+
+.checkbox
+  display: none
+  &:checked + .label
+    &:before
+      background: $red
+      border: solid 4px $white
+      background-size: 10px 10px

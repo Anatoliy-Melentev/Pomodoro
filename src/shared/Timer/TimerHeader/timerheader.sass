@@ -1,0 +1,29 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.header
+  color: $white
+  height: 55px
+  padding: 0 40px
+  display: flex
+  align-items: center
+  justify-content: space-between
+[data-theme='off']
+  .header
+    color: $i-white
+
+.grey
+  background-color: $greyC4
+[data-theme='off']
+  .grey
+    background-color: $i-greyC4
+.red
+  background-color: $red
+[data-theme='off']
+  .red
+    background-color: $i-red
+.green
+  background-color: $green
+[data-theme='off']
+  .green
+    background-color: $i-green

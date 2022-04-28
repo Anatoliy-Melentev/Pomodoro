@@ -1,0 +1,104 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.task
+  height: 55px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-top: -1px
+  background-color: $white
+  border-top: solid 1px $greyC4
+  border-bottom: solid 1px $greyC4
+[data-theme='off']
+  .task
+    background-color: $i-white
+    border-top: solid 1px $i-greyC4
+    border-bottom: solid 1px $i-greyC4
+
+.taskName
+  width: 100%
+  color: $black
+[data-theme='off']
+  .taskName
+    color: $i-black
+
+.button
+  height: 55px
+  display: flex
+  align-items: center
+
+.count
+  @include size(25, 25)
+  @include flex-center()
+  display: inline-flex
+  @include font(16, 25, 400)
+  border-radius: 50%
+  border: solid 1px $greyC4
+  margin-right: 10px
+  color: $black
+[data-theme='off']
+  .count
+    border: solid 1px $i-greyC4
+    color: $i-black
+
+.completed
+  background-color: $green
+  border: none
+  fill: $white
+[data-theme='off']
+  .completed
+    background-color: $i-green
+    fill: $i-white
+
+.ok
+  transform: scale(2, 2)
+
+.empty
+
+.menu
+  background-color: $white
+  border: solid 1px $greyC4
+  position: relative
+  padding: 6px 0
+[data-theme='off']
+  .menu
+    background-color: $i-white
+    border: solid 1px $i-greyC4
+
+.dropDown
+  margin-left: -77px
+  margin-top: 50px
+
+.menu:before
+  position: absolute
+  content: ''
+  display: block
+  background-color: $white
+  border-top: solid 1px $greyC4
+  border-left: solid 1px $greyC4
+  margin-left: 82px
+  margin-top: -12px
+  @include size(9, 9)
+  transform: rotate(45deg)
+[data-theme='off']
+  .menu:before
+    background-color: $i-white
+    border-top: solid 1px $i-greyC4
+    border-left: solid 1px $i-greyC4
+
+.item
+  width: 100%
+  background-color: $white
+  padding: 0 14px
+[data-theme='off']
+  .item
+    background-color: $i-white
+    color: $i-black
+
+.item:hover
+  background-color: $greyF4
+[data-theme='off']
+  .item:hover
+    background-color: $i-greyF4
+

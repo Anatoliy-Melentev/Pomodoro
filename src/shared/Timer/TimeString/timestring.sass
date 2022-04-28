@@ -1,0 +1,44 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.time
+  display: flex
+  align-items: center
+  justify-content: center
+  padding-top: 70px
+  font-family: Roboto, serif
+
+.time > .wrp > span
+  @include font(150, 179, 200)
+  padding: 0 25px 0 75px
+  display: inline-block
+
+.time > .wrp > span > div
+  display: inline-block
+
+.dots
+  font-weight: 300
+  transform: translate(0, -10px) scale(0.8,0.8)
+
+.grey
+  color: $black
+[data-theme='off']
+  .grey
+    color: $i-black
+
+.red
+  color: $red
+[data-theme='off']
+  .red
+    color: $i-red
+
+.green
+  color: $green
+[data-theme='off']
+  .green
+    color: $i-green
+
+.rotate
+  transform: rotateX(180deg)
+
+

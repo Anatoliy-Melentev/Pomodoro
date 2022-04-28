@@ -1,0 +1,58 @@
+@import "../../variables.global"
+@import "../../mixins.global"
+
+.allpref
+  width: 100%
+  @include flex-space()
+  flex-direction: column
+
+.head
+  width: 100%
+  @include size(full, 55)
+  @include flex-space()
+  margin-bottom: 30px
+
+.preferences
+  width: 100%
+
+.content
+  width: 100%
+  @include flex-space(between, column)
+[data-theme='off']
+  .content
+    background-color: $i-greyF4
+
+.range
+  width: 100%
+  @include flex-space()
+  flex-wrap: wrap
+
+.header
+  color: $white
+  height: 55px
+  padding: 0 40px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  background-color: $greyC4
+[data-theme='off']
+  .header
+    color: $i-white
+    background-color: $i-greyC4
+
+.notify
+  padding: 25px 25px 25px 25px
+  background-color: $greyF4
+  @include size(620, 150)
+
+.notifyHeader
+  @include flex-space()
+  width: 100%
+
+.other
+  padding: 25px 25px 25px 25px
+  background-color: $greyF4
+  @include size(620, 150)
+
+.title
+  @include font(24, 33, 700)

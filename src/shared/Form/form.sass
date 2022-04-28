@@ -1,0 +1,52 @@
+@import "../../variables.global"
+@import "../../mixins.global"
+
+.form
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  width: 370px
+
+.input
+  background-color: $greyF4
+  color: $black
+  padding: 19px 15px
+  height: 55px
+  width: 100%
+  vertical-align: middle
+  border: none
+  @include font(16, 17, 300)
+  display: block
+
+[data-theme='off']
+  .input
+    background-color: $i-greyF4
+    color: $i-black
+
+.error
+  width: 100%
+  padding: 12px 0
+  color: $dark-red
+  @include font(16, 17, 300)
+
+[data-theme='off']
+  .error
+    color: $i-dark-red
+
+.error:hover
+  text-decoration: none
+
+.error div
+  display: none
+  padding: 2px 3px
+  margin-left: 8px
+  width: 130px
+
+.error:hover div
+  display: inline
+  position: absolute
+  border: 1px solid #cccccc
+  color: #6c6c6c
+
+.input:focus, .input:active
+  outline: none

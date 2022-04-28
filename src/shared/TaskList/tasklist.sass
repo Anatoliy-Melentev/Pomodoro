@@ -1,0 +1,19 @@
+@import "../../variables.global"
+@import "../../mixins.global"
+
+.taskList
+  width: 370px
+
+.time
+  height: 55px
+  color: $black
+  @include font(16, 17, 300)
+  display: flex
+  align-items: center
+  justify-content: space-between
+  border-top: solid 1px $greyC4
+  margin-top: -1px
+[data-theme='off']
+  .time
+    color: $i-black
+    border-top: solid 1px $i-greyC4
