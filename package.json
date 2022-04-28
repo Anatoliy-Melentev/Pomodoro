@@ -33,13 +33,7 @@
     "redux-thunk": "^2.4.1",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
-    "unique-names-generator": "^4.6.0"
-  },
-  "name": "react.js",
-  "description": "Мой React.JS проект",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {
+    "unique-names-generator": "^4.6.0",
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
@@ -79,6 +73,10 @@
     "webpack-hot-middleware": "^2.25.1",
     "webpack-node-externals": "^3.0.0"
   },
+  "name": "react.js",
+  "description": "Мой React.JS проект",
+  "version": "1.0.0",
+  "main": "index.js",
   "babel": {
     "presets": [
       "@babel/preset-env",
@@ -88,7 +86,7 @@
   },
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
     "dev": "cross-env NODE_ENV=development node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
