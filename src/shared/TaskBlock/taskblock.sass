@@ -1,2 +1,18 @@
+@import "../../variables.global"
+@import "../../mixins.global"
+
 .taskblock
-  width: 587px
+  width: 42%
+
+  @include mobile
+    width: 100%
+    @include flex-space(between, column)
+    margin-top: 50px
+
+.taskblock > div
+  @include mobile
+    width: 100%
+
+.rules
+  @include tablet-mini
+    display: none

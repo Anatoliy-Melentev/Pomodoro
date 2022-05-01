@@ -14,6 +14,7 @@
   background-color: transparent
   white-space: nowrap
   height: 30px
+  margin-top: 5px
   &::before
     content: ''
     background-color: $white
@@ -22,13 +23,23 @@
     border: solid 4px $white
     box-shadow: 0 0 3px 3px $greyF4
     margin-right: 10px
-  &:hover
-
 
   &:hover
     &::before
       background-color: $greyF4
       border: solid 4px $white
+
+[data-theme='off']
+  .label
+    color: $i-black
+    &::before
+      background-color: $i-white
+      border: solid 4px $i-white
+      box-shadow: 0 0 3px 3px $i-greyF4
+    &:hover
+      &::before
+        background-color: $i-greyF4
+        border: solid 4px $i-white
 
 .checkbox
   display: none
@@ -37,3 +48,10 @@
       background: $red
       border: solid 4px $white
       background-size: 10px 10px
+
+[data-theme='off']
+  .checkbox
+    &:checked + .label
+      &:before
+        background: $i-red
+        border: solid 4px $i-white

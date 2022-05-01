@@ -5,13 +5,18 @@
   display: flex
   align-items: center
   justify-content: center
-  padding-top: 70px
   font-family: Roboto, serif
 
 .time > .wrp > span
   @include font(150, 179, 200)
   padding: 0 25px 0 75px
   display: inline-block
+  @include tablet-mini
+    @include font(100, 119, 200)
+  @include mobile
+    @include font(120, 139, 200)
+  @include mini
+    @include font(60, 80, 200)
 
 .time > .wrp > span > div
   display: inline-block

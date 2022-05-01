@@ -5,7 +5,7 @@ import { Break } from '../Break';
 import { emptyFn } from '../../utils/js/emptyFn';
 
 interface IActionProps {
-  children?: string;
+  children?: React.ReactNode;
   size?: number;
   icon?: string;
   onClick?: () => void;

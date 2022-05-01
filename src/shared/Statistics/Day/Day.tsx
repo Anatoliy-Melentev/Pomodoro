@@ -3,6 +3,8 @@ import { declinationOfNumber } from '../../../utils/js/declinationOfNumber';
 import { EColor, Text } from '../../Text';
 import { EIcon, Icon } from '../../Icon';
 import styles from './day.sass';
+import {useSelector} from "react-redux";
+import {checkLight} from "../../../store/preferences/selectors";
 
 const tomatoName = [' помидор', ' помидора', ' помидоров'];
 const hourName = [' часа', '-х часов', ' часов'];
@@ -15,6 +17,7 @@ interface IDayProps {
 }
 
 export function Day({ active, tomato, tomatoDT }: IDayProps) {
+  const light = useSelector(checkLight);
   const hours = () => Math.trunc(tomatoDT / 60) && Math.trunc(tomatoDT / 60);
   const tomatoDTName = `${hours() ? declinationOfNumber(hours(), hourName) : ''} `
     + `${declinationOfNumber(tomatoDT % 60, minutName)}`;
@@ -39,7 +42,9 @@ export function Day({ active, tomato, tomatoDT }: IDayProps) {
       <div className={styles.tomato}>
         {tomato ? (
           <div className={styles.datatomato}>
-            <Icon className={styles.tIcon} name={EIcon.tomato} size={81} />
+            {light
+              ? <Icon name={EIcon.tomato} className={styles.tIcon} size={81} />
+              : <Icon name={EIcon.pumpkin} className={styles.tIcon} size={100} />}
             <Text className={styles.x} color={EColor.grey99} size={24}>
               {`x ${tomato}`}
             </Text>
@@ -49,7 +54,9 @@ export function Day({ active, tomato, tomatoDT }: IDayProps) {
           </div>
         ) : (
           <div className={styles.bigtomato}>
-            <Icon name={EIcon.bigtomato} size={115} />
+            {light
+              ? <Icon name={EIcon.bigtomato} size={115} />
+              : <Icon name={EIcon.pumpkin} size={215} />}
           </div>
         )}
       </div>

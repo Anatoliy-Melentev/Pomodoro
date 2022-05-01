@@ -2,7 +2,8 @@
 @import "../../../../mixins.global"
 
 .allcolumn
-  width: 110px
+  @include flex-center(column)
+  width: 90%
   height: 5px
 
 .column
@@ -11,6 +12,8 @@
   background-color: $greyC4
   min-height: 5px
   height: 100%
+  @include mobile
+    width: 77%
 
 [data-theme='off']
   .column

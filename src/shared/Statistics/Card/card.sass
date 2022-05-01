@@ -2,21 +2,43 @@
 @import "../../../mixins.global"
 
 .card
-  @include size(405, 179)
+  height: 179px
+  width: 32%
   padding: 25px
   margin-top: 32px
   @include flex-space()
   align-items: center
   position: relative
+  @include tablet-mini
+    width: 32%
+    padding: 20px
+  @include mobile
+    width: 100%
+    padding: 20px
+
+.header
+  width: 100%
+  @include flex-center()
+  justify-content: flex-start
+
+.header > *
+  display: inline-block
 
 .h3
   margin: 0px
   margin-bottom: 14px
+  white-space: nowrap
   @include font(24,33,700)
+  @include tablet-mini
+    @include font(22,30,700)
 
 .value
   @include font(72,86,400)
   white-space: nowrap
+  @include tablet-mini
+    @include font(44,56,400)
+  @include mobile
+    @include font(72,86,400)
 
 .orange
   background-color: $orange
@@ -82,3 +104,29 @@
 
 .text
   z-index: 1
+  width: 100%
+
+.info
+  margin-top: -5px
+  margin-left: 5px
+.info *
+  fill: $black
+[data-theme='off']
+  .info *
+    fill: $i-black
+
+.tooltip
+  @include flex-center()
+  text-align: center
+  z-index: 2
+  background-color:  #333333aa
+  color: $white
+  @include offset(0,0,0,0)
+  padding: 25px
+  @include font(24,33,400)
+  display: none
+.tooltip > span
+  text-shadow: 0 0 5px $black, 0 0 5px $black, 0 0 5px $black
+
+.card:hover > .tooltip
+  display: flex

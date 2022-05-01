@@ -4,6 +4,13 @@
 .taskList
   width: 370px
 
+  @include tablet-mini
+    width: 100%
+    padding-right: 20px
+
+  @include mobile
+    padding-right: 0px
+
 .time
   height: 55px
   color: $black

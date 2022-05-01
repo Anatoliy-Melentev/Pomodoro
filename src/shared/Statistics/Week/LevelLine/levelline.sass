@@ -1,16 +1,18 @@
 @import "../../../../variables.global"
 @import "../../../../mixins.global"
 
-
 .level
   flex: 1
   background-color: transparent
   box-sizing: content-box
 
 .line
-  @include size(843, 1)
+  width: 88%
+  height: 1px
   background-color: $black
   opacity: 0.2
+  @include mobile
+    width: 80%
 
 [data-theme='off']
   .line
@@ -18,11 +20,14 @@
 
 .value
   @include font(12, 16, 400)
-  width: 94px
+  width: 10%
   float: right
   display: inline-block
   height: 100%
   margin-top: -8px
+  @include mobile
+    width: 18%
+    @include font(10, 10, 400)
 
 .level:last-child > .line
   background-color: transparent

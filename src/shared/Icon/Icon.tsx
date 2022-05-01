@@ -15,6 +15,8 @@ export enum EIcon {
   plus = 'plus',
   edit = 'edit',
   lamp = 'lamp',
+  info = 'info',
+  eyes = 'eyes',
   focus = 'focus',
   pause = 'pause',
   check = 'check',
@@ -22,10 +24,13 @@ export enum EIcon {
   close = 'close',
   tomato = 'tomato',
   delete = 'delete',
+  topmenu = 'topmenu',
+  pumpkin = 'pumpkin',
   increase = 'increase',
   decrease = 'decrease',
   bigtomato = 'bigtomato',
   preferences = 'preferences',
+  angrytomato = 'angrytomato',
 };
 
 interface IBaseSizes {

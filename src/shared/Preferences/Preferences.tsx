@@ -83,11 +83,11 @@ export function Preferences() {
             <div className={styles.notify}>
               <div className={styles.notifyHeader}>
                 <span className={styles.title}>Уведомление:</span>
-                <CheckBox name="notify" active={notify}>Уведомление</CheckBox>
+                <CheckBox name="notify" active={notify}>Включить</CheckBox>
               </div>
               <Radio>
                 {Object.values(sounds).map(([id, name]) => (
-                  <RadioItem key={id} name="sounds" active={sound === id} id={id}>
+                  <RadioItem key={id} name="sounds" active={sound === id} id={id} disabled={!notify}>
                     {name}
                   </RadioItem>
                 ))}

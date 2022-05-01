@@ -4,7 +4,7 @@ import { taskContext } from '../context/taskContext';
 import { selectTasks } from '../../store/task/selectors';
 import { selectSort } from '../../store/editMode/selectors';
 import { checkStatistics } from '../../store/statistics/selectors';
-import { getPreferences } from '../../store/preferences/selectors';
+import {checkLight, getPreferences} from '../../store/preferences/selectors';
 import {
   selectBreakType, selectPauseTime, selectStage, selectStartTime,
 } from '../../store/timer/selectors';
@@ -25,6 +25,8 @@ import { TimeString } from './TimeString';
 import { TimerHeader } from './TimerHeader';
 import tomato from '../../tomato.png';
 import styles from './timer.sass';
+import {EIcon, Icon} from "../Icon";
+import {Rules} from "../TaskBlock/Rules";
 
 const toSec = (min: number) => min/* * 60*/;
 
@@ -32,6 +34,7 @@ export function Timer() {
   const { setAddCompleted, setAddDelete } = useContext(taskContext);
   const dispatch = useDispatch();
 
+  const light = useSelector(checkLight);
   const sort = useSelector(selectSort);
   const tasks = useSelector(selectTasks);
   const startTime = useSelector(selectStartTime);
@@ -43,6 +46,7 @@ export function Timer() {
     workTimeOut, breakTimeOut, longTimeOut, additingTime, countBreaks, notify, sound,
   } = useSelector(getPreferences);
 
+  const [isAnimation, setIsAnimation] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [countTime, setCountTime] = useState(toSec(workTimeOut));
   const [allAdditingTime, setAllAdditingTime] = useState(0);
@@ -135,7 +139,7 @@ export function Timer() {
     } else {
       setCountTime(startTime + getTimeOut() - pauseTime);
     }
-  }, [seconds]);
+  }, [seconds, isAnimation]);
 
   useEffect(() => setCountTime(getTimeOut()), [workStage]);
   useEffect(() => {
@@ -144,16 +148,19 @@ export function Timer() {
         setAddDelete(true);
       }
 
-      setTimeout(() => {
-        dispatch(setSort(needDo));
-        dispatch(setCompleted(needDo));
-        if (setAddDelete) {
-          setAddDelete(false);
-        }
-        if (setAddCompleted) {
-          setAddCompleted(true);
-        }
-      }, 500);
+      setIsAnimation(true);
+
+     // setTimeout(() => {
+      setIsAnimation(false);
+      dispatch(setSort(needDo));
+      dispatch(setCompleted(needDo));
+      if (setAddDelete) {
+        setAddDelete(false);
+      }
+      if (setAddCompleted) {
+        setAddCompleted(true);
+      }
+      //}, 500);
     }
   }, [tasks]);
 
@@ -163,36 +170,59 @@ export function Timer() {
   const isPaused = !!pauseTime;
   const startFirstBtnName = !isPaused ? 'Пауза' : 'Продожить';
   const startSecondBtnName = !isPaused ? 'Стоп' : 'Сделано';
+  const [logoIcon, logoSize] = light ? [EIcon.bigtomato, 240] : [EIcon.pumpkin, 340];
 
   return (
-    <div className={styles.timer}>
-      <TimerHeader color={getColor(isStarted)} taskId={needDo} />
-      <div className={styles.content}>
-        {needDo && (
-          <>
-            <TimeString
-              addTime={addTime}
-              color={getColor(isStarted && !isPaused)}
-              countTime={countTime}
-            />
-            <div className={styles.task}>
-              <span className={styles.listStyle}>
-                Задача&nbsp;
-                {sort.indexOf(needDo) + 1}
-                &nbsp;-&nbsp;
-              </span>
-              <span className={styles.taskName}>{tasks[needDo].name}</span>
-            </div>
-            <div className={styles.btns}>
-              <Btn onClick={handleStart}>
-                {!isStarted ? 'Старт' : startFirstBtnName}
-              </Btn>
-              <Btn disabled={!isStarted} onClick={handleStop} isCancel>
-                {workStage ? startSecondBtnName : 'Пропустить'}
-              </Btn>
-            </div>
-          </>
-        )}
+    <div className={styles.wrapper}>
+      <div className={styles.timer}>
+        <TimerHeader color={getColor(isStarted)} taskId={needDo} />
+        <div className={styles.content}>
+          {needDo
+            ? (
+              <div className={styles.timeWrp}>
+                <TimeString
+                  addTime={addTime}
+                  color={getColor(isStarted && !isPaused)}
+                  countTime={isAnimation ? 0 : countTime}
+                />
+                <div className={styles.task}>
+                  {workStage && (
+                    <>
+                      <span className={styles.listStyle}>
+                        Задача&nbsp;
+                        {sort.indexOf(needDo) + 1}
+                        &nbsp;-&nbsp;
+                      </span>
+                      <span className={styles.taskName}>{tasks[needDo].name}</span>
+                    </>
+                  )}
+                  {isStarted && !workStage && (
+                    <span className={styles.listStyle}>
+                      {longBreak ? 'Длинный' : 'Короткий'}
+                      &nbsp;перерыв
+                    </span>
+                  )}
+                  {isPaused && <span className={styles.listStyle}>&nbsp;-&nbsp;пауза</span>}
+                </div>
+                <div className={styles.btns}>
+                  <Btn onClick={handleStart}>
+                    {!isStarted ? 'Старт' : startFirstBtnName}
+                  </Btn>
+                  <Btn disabled={!isStarted} onClick={handleStop} isCancel>
+                    {workStage ? startSecondBtnName : 'Пропустить'}
+                  </Btn>
+                </div>
+              </div>
+            )
+            : (
+              <>
+                <Icon name={logoIcon} className={styles.tomato} size={logoSize} />
+                <div className={styles.rules}>
+                  <Rules />
+                </div>
+              </>
+            )}
+        </div>
       </div>
     </div>
   );

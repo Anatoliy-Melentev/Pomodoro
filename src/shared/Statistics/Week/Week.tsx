@@ -21,28 +21,30 @@ export function Week({ total, active, setActive }: IWeekProps) {
   const getCountLines = () => Math.ceil(getMax() / getCounts());
 
   return (
-    <div className={styles.week}>
-      <div className={styles.lines}>
-        {Array(getCountLines()).fill(null).map((_, i) => (
-          <LevelLine key={generateRandomNumber(i)} time={(i + 1) * getCounts()} />
-        ))}
-      </div>
-      <div className={styles.footer}>
-        {['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'].map((name, i) => (
-          <button type="button" key={generateRandomNumber(i)} onClick={() => setActive(i)} className={getClass(i)}>
-            {name}
-          </button>
-        ))}
-      </div>
-      <div className={styles.columns}>
-        {total.map((size, i) => (
-          <Column
-            onClick={() => setActive(i)}
-            key={generateRandomNumber(i)}
-            size={(size * (420 / (getCountLines() || 1))) / getCounts()}
-            active={active === i}
-          />
-        ))}
+    <div className={styles.weekWrp}>
+      <div className={styles.week}>
+        <div className={styles.lines}>
+          {Array(getCountLines()).fill(null).map((_, i) => (
+            <LevelLine key={generateRandomNumber(i)} time={(i + 1) * getCounts()} />
+          ))}
+        </div>
+        <div className={styles.footer}>
+          {['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'].map((name, i) => (
+            <button type="button" key={generateRandomNumber(i)} onClick={() => setActive(i)} className={getClass(i)}>
+              {name}
+            </button>
+          ))}
+        </div>
+        <div className={styles.columns}>
+          {total.map((size, i) => (
+            <Column
+              onClick={() => setActive(i)}
+              key={generateRandomNumber(i)}
+              size={(size * (100 / (getCountLines() || 1))) / getCounts()}
+              active={active === i}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 @import "../../variables.global"
+@import "../../mixins.global"
 
 .btn
   border: solid 2px $green
@@ -8,6 +9,8 @@
   background-color: $green
   font-size: 16px
   color: white
+  @include mobile
+    padding: 0 35px
 
 [data-theme='off']
   .btn

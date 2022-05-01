@@ -7,15 +7,32 @@
   padding: 25px
   background-color: $greyF4
   margin-bottom: 32px
-  width: 620px
+  @include mini
+    @include flex-center()
+
+[data-theme='off']
+  .form
+    background-color: $i-greyF4
 
 .setter
+  width: 76%
+  padding-right: 10px
+  @include tablet-mini
+    width: 84%
+  @include mobile
+    width: 70%
+  @include mini
+    width: 100%
 
 .label
   @include font(24, 33)
   color: $black
   font-weight: bold
   margin-bottom: 25px
+
+[data-theme='off']
+  .label
+    color: $i-black
 
 .value
   @include flex-center(column)
@@ -27,6 +44,14 @@
   padding: 0px 5px
   text-align: center
   margin-top: -10px
+  border: none
+  @include mini
+    margin: 20px
+    padding: 10px
+[data-theme='off']
+  .output
+    background-color: $i-white
+    color: $i-black
 
 .unit
   @include font(32, 24, 400)
@@ -35,15 +60,21 @@
   width: 100px
   text-align: center
 
+[data-theme='off']
+  .unit
+    color: $i-greyD9
+
 .range
   height: 27px
   -webkit-appearance: none
   margin: 30px 0 10px
-  width: 330px
   background-color: transparent
+  flex: 1
 
 .line
   @include  flex-center()
+  flex: 1
+
 .text
   width: 50px
   text-align: center
@@ -61,6 +92,12 @@
   border-radius: 0px
   border: 0px solid $grey99
 
+[data-theme='off']
+  .range::-webkit-slider-runnable-track
+    box-shadow: 0px 0px 0px $i-greyC4
+    background: $i-black
+    border: 0px solid $i-grey99
+
 .range::-webkit-slider-thumb
   box-shadow: 0px 0px 0px $grey66
   border: 1px solid $red
@@ -72,8 +109,18 @@
   -webkit-appearance: none
   margin-top: -10px
 
+[data-theme='off']
+  .range::-webkit-slider-thumb
+    box-shadow: 0px 0px 0px $i-grey66
+    border: 1px solid $i-red
+    background: $i-red
+
 .range:focus::-webkit-slider-runnable-track
   background: $greyC4
+
+[data-theme='off']
+  .range:focus::-webkit-slider-runnable-track
+    background: $i-greyC4
 
 .range::-moz-range-track
   width: 100%
@@ -83,6 +130,11 @@
   background: $greyC4
   border-radius: 0px
   border: 0px solid $grey99
+[data-theme='off']
+  .range::-moz-range-track
+    box-shadow: 0px 0px 0px $i-greyC4
+    background: $i-greyC4
+    border: 0px solid $i-grey99
 
 .range::-moz-range-thumb
   box-shadow: 0px 0px 0px $grey66
@@ -92,6 +144,11 @@
   border-radius: 10px
   background: $red
   cursor: pointer
+[data-theme='off']
+  .range::-moz-range-thumb
+    box-shadow: 0px 0px 0px $i-grey66
+    border: 1px solid $i-red
+    background: $i-red
 
 .range::-ms-track
   width: 100%
@@ -106,12 +163,23 @@
   border: 0px solid $grey99
   border-radius: 10px
   box-shadow: 0px 0px 0px $grey66
+[data-theme='off']
+  .range::-ms-fill-lower
+    background: $i-greyC4
+    border: 0px solid $i-grey99
+    box-shadow: 0px 0px 0px $i-grey66
 
 .range::-ms-fill-upper
   background: $greyC4
   border: 0px solid $grey99
   border-radius: 10px
   box-shadow: 0px 0px 0px $greyC4
+
+[data-theme='off']
+  .range::-ms-fill-upper
+    background: $i-greyC4
+    border: 0px solid $i-grey99
+    box-shadow: 0px 0px 0px $i-greyC4
 
 .range::-ms-thumb
   margin-top: 1px
@@ -122,9 +190,20 @@
   border-radius: 10px
   background: $red
   cursor: pointer
+[data-theme='off']
+  .range::-ms-thumb
+    box-shadow: 0px 0px 0px $i-grey66
+    border: 1px solid $i-red
+    background: $i-red
 
 .range:focus::-ms-fill-lower
   background: $greyC4
+[data-theme='off']
+  .range:focus::-ms-fill-lower
+    background: $i-greyC4
 
 .range:focus::-ms-fill-upper
   background: $greyC4
+[data-theme='off']
+  .range:focus::-ms-fill-upper
+    background: $i-greyC4

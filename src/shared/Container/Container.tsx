@@ -5,8 +5,10 @@ interface IContainerProps {
   children: React.ReactNode;
 }
 
-export function Container({ children = '' }:IContainerProps) {
+export function Container({ children = '' }: IContainerProps) {
   return (
-    <div className={styles.container}>{children}</div>
+    <div className={styles.container}>
+      {children}
+    </div>
   );
 }

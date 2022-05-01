@@ -40,3 +40,25 @@
     bottom: $bottom+px
   @if $left
     left: $left+px
+
+@mixin wrapper($ratio: 50%)
+  position: relative
+  height: 0
+  border: none
+  padding-top: $ratio
+
+@mixin tablet
+  @media (max-width: $tablet-width)
+    @content
+
+@mixin tablet-mini
+  @media (max-width: $tablet-mini-width)
+    @content
+
+@mixin mobile
+  @media (max-width: $mobile-width)
+    @content
+
+@mixin mini
+  @media (max-width: $mini-width)
+    @content

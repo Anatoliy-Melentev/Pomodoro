@@ -40,7 +40,13 @@ export function Range({
         </div>
       </div>
       <div className={styles.value}>
-        <output className={styles.output} name={id} htmlFor={id}>{value}</output>
+        <input
+          type="text"
+          className={styles.output}
+          name={id}
+          value={value}
+          onChange={({ target }: ChangeEvent<HTMLInputElement>) => setValue(Number(target.value))}
+        />
         <span className={styles.unit}>{unit}</span>
       </div>
     </form>

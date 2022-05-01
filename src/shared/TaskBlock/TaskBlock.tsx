@@ -8,11 +8,15 @@ import styles from './taskblock.sass';
 export function TaskBlock() {
   return (
     <div className={styles.taskblock}>
-      <Rules />
-      <Break size={25} top />
-      <Form />
-      <Break size={25} top />
-      <TaskList />
+      <div className={styles.rules}>
+        <Rules />
+        <Break size={25} top />
+      </div>
+      <div>
+        <Form />
+        <Break size={25} top />
+        <TaskList />
+      </div>
     </div>
   );
 }

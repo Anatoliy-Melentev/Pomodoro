@@ -7,8 +7,8 @@ interface IContentProps {
 
 export function Content({ children = '' }: IContentProps) {
   return (
-    <main className={styles.content}>
+    <div className={styles.content}>
       {children}
-    </main>
+    </div>
   );
 }

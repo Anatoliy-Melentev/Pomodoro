@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import classNames from 'classnames';
 import { bounceIn } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
 import { emptyFn } from '../../../utils/js/emptyFn';
 import { Plus } from '../../Plus';
 import styles from './timestring.sass';
+import {taskContext} from "../../context/taskContext";
 
 interface ITimeStringProps {
   countTime: number;
-  color: string;
+  color?: string;
   addTime?: () => void;
 }
 
@@ -20,10 +21,9 @@ const style = StyleSheet.create({
 });
 
 export function TimeString({ countTime, color = 'grey', addTime = emptyFn }: ITimeStringProps) {
-  const [oneCls, setOneCls] = useState(false);
-  const [twoCls, setTwoCls] = useState(false);
-  const [threeCls, setThreeCls] = useState(false);
-  const [fourCls, setFourCls] = useState(false);
+  const {
+    oneCls, setOneCls, twoCls, setTwoCls, threeCls, setThreeCls, fourCls, setFourCls,
+  } = useContext(taskContext);
   const minuts = Math.trunc((countTime / 60) % 60);
   const seconds = countTime % 60;
   const one = Math.trunc(minuts / 10);
@@ -38,10 +38,16 @@ export function TimeString({ countTime, color = 'grey', addTime = emptyFn }: ITi
     }, 500);
   };
 
-  useEffect(() => runAnimation(setOneCls), [one]);
-  useEffect(() => runAnimation(setTwoCls), [two]);
-  useEffect(() => runAnimation(setThreeCls), [three]);
-  useEffect(() => runAnimation(setFourCls), [four]);
+  useEffect(() => setOneCls && runAnimation(setOneCls), [one]);
+  useEffect(() => setTwoCls && runAnimation(setTwoCls), [two]);
+  useEffect(() => setThreeCls && runAnimation(setThreeCls), [three]);
+  useEffect(() => setFourCls && runAnimation(setFourCls), [four]);
+
+  useEffect(() => {
+    if ([one, two, three, four].every((item) => +item === 0)) {
+      [setOneCls, setTwoCls, setThreeCls, setFourCls].forEach((fn) => fn && runAnimation(fn));
+    }
+  }, [one, two, three, four]);
 
   return (
     <div className={styles.time}>
@@ -60,4 +66,5 @@ export function TimeString({ countTime, color = 'grey', addTime = emptyFn }: ITi
 }
 TimeString.defaultProps = {
   addTime: emptyFn,
+  color: 'grey',
 };

@@ -18,14 +18,16 @@
 .content
   width: 100%
   @include flex-space(between, column)
-[data-theme='off']
-  .content
-    background-color: $i-greyF4
 
 .range
   width: 100%
   @include flex-space()
   flex-wrap: wrap
+
+.range > *
+  width: 49%
+  @include tablet-mini
+    width: 100%
 
 .header
   color: $white
@@ -43,7 +45,12 @@
 .notify
   padding: 25px 25px 25px 25px
   background-color: $greyF4
-  @include size(620, 150)
+  height: 150px
+  @include tablet-mini
+    height: auto
+[data-theme='off']
+  .notify
+    background-color: $i-greyF4
 
 .notifyHeader
   @include flex-space()
@@ -54,5 +61,14 @@
   background-color: $greyF4
   @include size(620, 150)
 
+[data-theme='off']
+  .other
+    background-color: $i-greyF4
+
 .title
   @include font(24, 33, 700)
+  margin-right: 10px
+
+[data-theme='off']
+  .title
+    color: $i-black

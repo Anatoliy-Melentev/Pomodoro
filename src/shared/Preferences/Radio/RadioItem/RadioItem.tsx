@@ -9,10 +9,11 @@ interface IRadioItemProps {
   children: string;
   name: string;
   active: boolean;
+  disabled: boolean;
 }
 
 export function RadioItem({
-  id, children, name, active,
+  id, children, name, active, disabled,
 }: IRadioItemProps) {
   const dispatch = useDispatch();
   const handleChange = () => {
@@ -22,7 +23,15 @@ export function RadioItem({
 
   return (
     <li className={styles.li}>
-      <input className={styles.radio} onChange={handleChange} type="radio" name={name} id={`${name}-${id}`} defaultChecked={active} />
+      <input
+        className={styles.radio}
+        onChange={handleChange}
+        type="radio"
+        name={name}
+        id={`${name}-${id}`}
+        defaultChecked={active}
+        disabled={disabled}
+      />
       <label className={styles.label} htmlFor={`${name}-${id}`}>{children}</label>
     </li>
   );

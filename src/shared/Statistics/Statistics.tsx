@@ -27,11 +27,21 @@ export function Statistics() {
   return (
     <div className={styles.statistics}>
       <Menu setWeekCount={(week) => setWeekCount(week)} />
-      <Day active={active} tomato={tomato} tomatoDT={Math.round(tomatoDT / 60)} />
-      <Week active={active} setActive={setActive} total={weekStat.map((day) => day.totalDT / 60)} />
-      <Card type="focus" value={Math.round((tomatoDT / (totalDT || 1)) * 100)} />
-      <Card type="pause" value={Math.round(pauseDT / 60)} />
-      <Card type="stop" value={stopTimes} />
+      <div className={styles.wrpgraf}>
+        <div className={styles.graf}>
+          <Day active={active} tomato={tomato} tomatoDT={Math.round(tomatoDT / 60)} />
+          <Week
+            active={active}
+            setActive={setActive}
+            total={weekStat.map((day) => day.totalDT / 60)}
+          />
+        </div>
+      </div>
+      <div className={styles.cards}>
+        <Card type="focus" value={Math.round((tomatoDT / (totalDT || 1)) * 100)} />
+        <Card type="pause" value={Math.round(pauseDT / 60)} />
+        <Card type="stop" value={stopTimes} />
+      </div>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export function Column({ size = 5, active = false, onClick }: IColumnProps) {
 
   useEffect(() => {
     if (div.current) {
-      div.current.style.height = `${size < 5 ? 5 : size}px`;
+      div.current.style.height = `${size < 5 ? 5 : size}%`;
     }
   }, [size, active]);
 
