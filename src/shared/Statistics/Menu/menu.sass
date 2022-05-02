@@ -1,0 +1,86 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.allmenu
+  @include size(full, 55)
+  @include flex-space()
+  margin-bottom: 30px
+  @include mobile
+    margin-top: 30px
+
+.header
+  line-height: 10px
+  @include mobile
+    display: none
+
+.wmenu
+  @include size(370, 55)
+  @include mobile
+    width: 100%
+
+.wmenu button
+  @include mobile
+    width: 100%
+
+.menuBtn
+  @include mobile
+    width: 100%
+
+.menuBtn, .item
+  background-color: $greyF4
+  @include font(16)
+  @include flex-space()
+  @include size(370, 55)
+  align-items: center
+  padding: 0 22px 0 15px
+  @include mobile
+    width: 100%
+
+[data-theme='off']
+  .menuBtn, .item
+    background-color: $i-greyF4
+
+.check
+  stroke: $red
+
+[data-theme='off']
+  .check
+    stroke: $i-red
+
+.item
+  justify-content: start
+  padding-left: 6px
+  border-top: solid 1px $greyD9
+  box-shadow: 0px 10px 63px rgba(0, 0, 0, 0.07)
+  color: $black
+  @include mobile
+    width: 100%
+
+[data-theme='off']
+  .item
+    background-color: $i-black
+    color: $i-black
+    box-shadow: 0px 10px 63px rgba(255, 255, 255, 0.07)
+
+.item:hover
+  background-color: $white
+
+[data-theme='off']
+  .item
+    background-color: $i-white
+
+.dropdown
+  margin-top: 55px
+  @include mobile
+    width: 100%
+
+.dropdown *
+  @include mobile
+    width: 100%
+    text-align: left
+
+.dropdown button
+  @include mobile
+    @include flex-space(between, row-reverse)
+    white-space: nowrap
+

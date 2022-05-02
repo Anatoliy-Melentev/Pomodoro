@@ -1,0 +1,65 @@
+@import "../../variables.global"
+@import "../../mixins.global"
+
+.wrapper
+  width: 57%
+
+  @include tablet-mini
+    @include wrapper(40%)
+    margin-bottom: 30px
+  @include mobile
+    width: 100%
+    @include wrapper(69%)
+
+.timer
+  width: 100%
+  @include tablet-mini
+    @include offset(0,0,0,0)
+
+.tomato
+  display: block
+  @include tablet-mini
+    display: none
+.rules
+  display: none
+  @include tablet-mini
+    display: block
+
+.content
+  background-color: $greyF4
+  width: 100%
+  height: 452px
+  @include flex-center()
+  @include tablet-mini
+    height: 100%
+[data-theme='off']
+  .content
+    background-color: $i-greyF4
+
+.timeWrp
+  @include flex-center(column)
+.task
+  text-align: center
+  @include font(16, 17, 500)
+
+.listStyle
+  color: $greyC4
+[data-theme='off']
+  .listStyle
+    color: $i-black
+
+.taskName
+  color: $black
+[data-theme='off']
+  .taskName
+    color: $i-black
+.btns
+  display: flex
+  margin-top: 32px
+
+.btns > *:last-child
+  margin-left: 25px
+
+
+
+

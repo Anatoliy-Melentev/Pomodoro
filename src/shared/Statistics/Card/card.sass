@@ -1,0 +1,142 @@
+@import "../../../variables.global"
+@import "../../../mixins.global"
+
+.card
+  height: 179px
+  width: 32%
+  padding: 25px
+  margin-top: 32px
+  @include flex-space()
+  align-items: flex-start
+  position: relative
+  @include tablet-mini
+    height: 200px
+    width: 32%
+    padding: 20px
+  @include mobile
+    width: 100%
+    padding: 20px
+
+.header
+  width: 100%
+  @include flex-center()
+  justify-content: flex-start
+
+.header > *
+  display: inline-block
+
+.h3
+  margin: 0px
+  margin-bottom: 14px
+  white-space: nowrap
+  @include font(24,33,700)
+  @include tablet-mini
+    @include font(22,30,700)
+
+.value
+  @include font(72,86,400)
+  white-space: nowrap
+  @include tablet-mini
+    @include font(44,56,400)
+  @include mobile
+    @include font(72,86,400)
+
+[data-theme='off']
+  .value
+    color: $i-black
+
+.orange
+  background-color: $orange
+
+[data-theme='off']
+  .orange
+    background-color: $i-orange
+
+.orange *
+  stroke: $dark-orange
+  fill: transparent
+
+[data-theme='off']
+  .orange *
+    stroke: $i-dark-orange
+
+.purple
+  background-color: $purple
+
+[data-theme='off']
+  .purple
+    background-color: $i-purple
+
+.purple *
+  stroke: $dark-purple
+  fill: transparent
+
+[data-theme='off']
+  .purple *
+    stroke: $i-dark-purple
+
+.blue
+  background-color: $blue
+
+[data-theme='off']
+  .blue
+    background-color: $i-blue
+
+.blue *
+  stroke: $dark-blue
+  fill: transparent
+
+[data-theme='off']
+  .blue *
+    stroke: $i-dark-blue
+
+.grey
+  background-color: $greyF4
+
+[data-theme='off']
+  .grey
+    background-color: $i-greyF4
+
+.grey *
+  stroke: $greyC4
+  fill: transparent
+
+[data-theme='off']
+  .grey *
+    stroke: $i-greyC4
+
+.icon
+  @include size(115, 115)
+  @include offset(auto, 25, 25)
+
+.text
+  z-index: 1
+  width: 100%
+
+.info
+  margin-top: -5px
+  margin-left: 10px
+
+.info *
+  fill: $grey99
+
+[data-theme='off']
+  .info *
+    fill: $i-grey99
+
+.tooltip
+  @include flex-center()
+  text-align: center
+  z-index: 2
+  background-color:  #333333aa
+  color: $white
+  @include offset(0,0,0,0)
+  padding: 25px
+  @include font(24,33,400)
+  display: none
+
+.tooltip > span
+  text-shadow: 0 0 5px $black, 0 0 5px $black, 0 0 5px $black
+
+.card:hover > .tooltip
+  display: flex

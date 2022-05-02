@@ -1,0 +1,101 @@
+@import "../../variables.global"
+@import "../../mixins.global"
+
+.header
+  height: 70px
+  box-shadow: 0px 10px 63px 0px rgba(0, 0, 0, 0.07)
+  background-color: $white
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-bottom: 100px
+  @include tablet-mini
+    margin-bottom: 50px
+  @include mobile
+    margin-bottom: 30px
+
+[data-theme='off']
+  .header
+    background-color: $i-white
+    box-shadow: 0px 10px 63px 0px rgba(255, 255, 255, 0.07)
+
+.link
+  @include mobile
+    text-align: left
+
+.link *
+  color: $red
+  fill: $red
+
+[data-theme='off']
+  .link *
+    color: $i-red
+    fill: $i-red
+
+.link:hover *
+  color: $dark-red
+  fill: $dark-red
+
+[data-theme='off']
+  .link:hover *
+    color: $i-dark-red
+    fill: $i-dark-red
+
+.mobileMenu
+  display: none
+  @include mobile
+    display: block
+
+.container
+  width: 100%
+  display: flex
+  justify-content: space-between
+  align-items: center
+  @include mini
+    padding: 0 20px
+
+.buttons
+  position: relative
+
+.icons
+  display: flex
+  height: 100%
+  justify-content: center
+  @include mobile
+    display: none
+
+.iconsMobile
+  display: block
+  background-color: $white
+  width: 160px
+  height: auto
+  padding: 10px 20px
+  border: solid 1px $greyC4
+  position: absolute
+  right: 130px
+  top: 40px
+
+[data-theme='off']
+  .iconsMobile
+    background-color: $i-white
+    border: solid 1px $i-greyC4
+
+.icons > *
+  margin-left: 20px
+  @include mobile
+    height: 36px
+    margin: 0px
+
+.menu
+  display: none
+  @include mobile
+    fill: $red
+    display: block
+
+[data-theme='off']
+  .menu
+    fill: $i-red
+
+.menu:focus .icon
+  display: block
+
