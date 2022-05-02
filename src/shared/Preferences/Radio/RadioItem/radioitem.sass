@@ -1,0 +1,84 @@
+@import "../../../../variables.global"
+@import "../../../../mixins.global"
+
+.li
+  list-style: none
+  width: 20%
+  @include mini
+    width: 50%
+
+.label
+  vertical-align: middle
+  line-height: 20px
+  @include size(auto,20)
+  display: flex
+  align-items: center
+  cursor: pointer
+  background-color: transparent
+  white-space: nowrap
+  height: 10px
+
+  &::before
+    content: ''
+    background-color: $white
+    display: inline-block
+    @include size(12,12)
+    border: solid 4px $white
+    box-shadow: 0 0 3px 3px $greyF4
+    margin-right: 10px
+    border-radius: 50%
+
+  &:hover
+    &::before
+      background-color: $pink
+      border: solid 4px $white
+
+  @include mini
+    height: 50px
+    line-height: 50px
+
+[data-theme='off']
+  .label
+    color: $i-black
+    &::before
+      background-color: $i-white
+      border: solid 4px $i-white
+      box-shadow: 0 0 3px 3px $i-greyF4
+    &:hover
+      &::before
+        background-color: $i-pink
+        border: solid 4px $i-white
+
+@include tablet-mini
+  .label:hover::before
+    background-color: $white
+
+@include tablet-mini
+  [data-theme='off']
+    .label:hover::before
+      background-color: $i-white
+
+.radio
+  display: none
+  &:checked + .label
+    &:before
+      background: $red
+      border: solid 4px $white
+      background-size: 10px 10px
+  &:disabled + .label
+    color: $greyC4
+  &:disabled + .label
+    &:before
+      background-color: $white
+
+[data-theme='off']
+  .radio
+    &:checked + .label
+      &:before
+        background: $i-red
+        border: solid 4px $i-white
+    &:disabled + .label
+      color: $i-greyC4
+    &:disabled + .label
+      &:before
+        background-color: $i-white
