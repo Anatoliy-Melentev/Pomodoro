@@ -4,7 +4,7 @@ import { taskContext } from '../context/taskContext';
 import { selectTasks } from '../../store/task/selectors';
 import { selectSort } from '../../store/editMode/selectors';
 import { checkStatistics } from '../../store/statistics/selectors';
-import {checkLight, getPreferences} from '../../store/preferences/selectors';
+import { checkLight, getPreferences } from '../../store/preferences/selectors';
 import {
   selectBreakType, selectPauseTime, selectStage, selectStartTime,
 } from '../../store/timer/selectors';
@@ -20,15 +20,15 @@ import { getCurSeconds } from '../../utils/js/getCurSeconds';
 import { useMountEffect } from '../../hooks/useMountEffect';
 import { sendNotify } from '../../utils/js/sendNotify';
 import { playSound } from '../../utils/js/playSound';
-import { Btn } from '../Btn';
-import { TimeString } from './TimeString';
 import { TimerHeader } from './TimerHeader';
+import { Rules } from '../TaskBlock/Rules';
+import { TimeString } from './TimeString';
+import { EIcon, Icon } from '../Icon';
+import { Btn } from '../Btn';
 import tomato from '../../tomato.png';
 import styles from './timer.sass';
-import {EIcon, Icon} from "../Icon";
-import {Rules} from "../TaskBlock/Rules";
 
-const toSec = (min: number) => min/* * 60*/;
+const toSec = (min: number) => min * 60;
 
 export function Timer() {
   const { setAddCompleted, setAddDelete } = useContext(taskContext);
@@ -46,7 +46,6 @@ export function Timer() {
     workTimeOut, breakTimeOut, longTimeOut, additingTime, countBreaks, notify, sound,
   } = useSelector(getPreferences);
 
-  const [isAnimation, setIsAnimation] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [countTime, setCountTime] = useState(toSec(workTimeOut));
   const [allAdditingTime, setAllAdditingTime] = useState(0);
@@ -139,7 +138,7 @@ export function Timer() {
     } else {
       setCountTime(startTime + getTimeOut() - pauseTime);
     }
-  }, [seconds, isAnimation]);
+  }, [seconds]);
 
   useEffect(() => setCountTime(getTimeOut()), [workStage]);
   useEffect(() => {
@@ -148,19 +147,16 @@ export function Timer() {
         setAddDelete(true);
       }
 
-      setIsAnimation(true);
-
-     // setTimeout(() => {
-      setIsAnimation(false);
-      dispatch(setSort(needDo));
-      dispatch(setCompleted(needDo));
-      if (setAddDelete) {
-        setAddDelete(false);
-      }
-      if (setAddCompleted) {
-        setAddCompleted(true);
-      }
-      //}, 500);
+      setTimeout(() => {
+        dispatch(setSort(needDo));
+        dispatch(setCompleted(needDo));
+        if (setAddDelete) {
+          setAddDelete(false);
+        }
+        if (setAddCompleted) {
+          setAddCompleted(true);
+        }
+      }, 500);
     }
   }, [tasks]);
 
@@ -183,7 +179,7 @@ export function Timer() {
                 <TimeString
                   addTime={addTime}
                   color={getColor(isStarted && !isPaused)}
-                  countTime={isAnimation ? 0 : countTime}
+                  countTime={countTime}
                 />
                 <div className={styles.task}>
                   {workStage && (

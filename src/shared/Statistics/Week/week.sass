@@ -47,12 +47,17 @@
 [data-theme='off']
   .footer
     background-color: $i-greyEC
+    color: $i-white
 
 .textDay
   @include font(24,29,400)
   flex: 1
   @include mobile
     @include font(18,27,400)
+
+[data-theme='off']
+  .textDay
+    color: $i-black
 
 .textDay:hover
   color: $pink

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Action } from "../../Action";
+import { Action } from '../../Action';
 import { EIcon, Icon } from '../../Icon';
 import { EColor, Text } from '../../Text';
 import styles from './card.sass';

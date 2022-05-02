@@ -2,18 +2,17 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { checkLight } from '../../../store/preferences/selectors';
 import { EIcon, Icon } from '../../Icon';
-import { Text, EColor } from '../../Text';
+import { EColor, Text } from '../../Text';
 import { Break } from '../../Break';
 import styles from './logo.sass';
 
 export function Logo() {
   const light = useSelector(checkLight);
+  const [icon, size] = light ? [EIcon.tomato, 40] : [EIcon.pumpkin, 60];
 
   return (
     <div className={styles.logo}>
-      {light
-        ? <Icon name={EIcon.tomato} className={styles.tomato} size={40} />
-        : <Icon name={EIcon.pumpkin} className={styles.tomato} size={70} />}
+      <Icon name={icon} className={styles.tomato} size={size} />
       <Break size={12} inline />
       <Text size={24} color={EColor.red}>pomodoro_box</Text>
     </div>

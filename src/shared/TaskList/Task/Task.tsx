@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
 import classNames from 'classnames';
+import { deleteTask, changeTimeTask, setCompleted } from '../../../store/task/actions';
+import { deleteSort, setEditMode } from '../../../store/editMode/actions';
 import { DropDown } from '../../DropDown';
 import { EIcon, Icon } from '../../Icon';
 import { Action } from '../../Action';
-import { deleteTask, changeTimeTask, setCompleted } from '../../../store/task/actions';
-import { deleteSort, setEditMode } from '../../../store/editMode/actions';
 import { Question } from '../../Question';
 import styles from './task.sass';
 

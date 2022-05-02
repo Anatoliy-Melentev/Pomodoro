@@ -25,6 +25,10 @@
 .red
   color: $red
   font-weight: bold
+[data-theme='off']
+  .red
+    color: $i-red
+
 
 .daycolumn > div
   background-color: $greyF4
@@ -76,6 +80,7 @@
   position: absolute
   bottom: 0
   @include flex-center()
+
 [data-theme='off']
   .footer
     background-color: $i-red

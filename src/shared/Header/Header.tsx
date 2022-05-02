@@ -22,40 +22,42 @@ export function Header() {
             <Logo />
           </A>
           <div className={styles.buttons}>
-            <DropDown
-              className={styles.dropDown}
-              button={(
-                <div className={styles.menu}>
-                  <Icon name={EIcon.topmenu} size={32} />
+            <div className={styles.mobileMenu}>
+              <DropDown
+                className={styles.dropDown}
+                button={(
+                  <div className={styles.menu}>
+                    <Icon name={EIcon.topmenu} size={32} />
+                  </div>
+                )}
+              >
+                <div className={styles.iconsMobile}>
+                  <A to="/">
+                    <Action className={styles.link} icon={EIcon.timer} size={16}>
+                      <span className={styles.actionText}>Таймер</span>
+                    </Action>
+                  </A>
+                  <A to="/preferences">
+                    <Action className={styles.link} icon={EIcon.preferences} size={18}>
+                      <span className={styles.actionText}>Настройки</span>
+                    </Action>
+                  </A>
+                  <A to="statistics">
+                    <Action className={styles.link} icon={EIcon.stat} size={16}>
+                      <span className={styles.actionText}>Статистика</span>
+                    </Action>
+                  </A>
+                  <Action
+                    onClick={() => dispatch(setLight())}
+                    className={styles.link}
+                    icon={EIcon.lamp}
+                    size={20}
+                  >
+                    <span className={styles.actionText}>{light ? 'Выкл.' : 'Вкл.'}</span>
+                  </Action>
                 </div>
-              )}
-            >
-              <div className={styles.iconsMobile}>
-                <A to="/">
-                  <Action className={styles.link} icon={EIcon.timer} size={16}>
-                    <span className={styles.actionText}>Таймер</span>
-                  </Action>
-                </A>
-                <A to="/preferences">
-                  <Action className={styles.link} icon={EIcon.preferences} size={18}>
-                    <span className={styles.actionText}>Настройки</span>
-                  </Action>
-                </A>
-                <A to="statistics">
-                  <Action className={styles.link} icon={EIcon.stat} size={16}>
-                    <span className={styles.actionText}>Статистика</span>
-                  </Action>
-                </A>
-                <Action
-                  onClick={() => dispatch(setLight())}
-                  className={styles.link}
-                  icon={EIcon.lamp}
-                  size={20}
-                >
-                  <span className={styles.actionText}>{light ? 'Выкл.' : 'Вкл.'}</span>
-                </Action>
-              </div>
-            </DropDown>
+              </DropDown>
+            </div>
             <div className={styles.icons}>
               <A to="/">
                 <Action className={styles.link} icon={EIcon.timer} size={16}>

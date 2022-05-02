@@ -17,6 +17,6 @@ export const sounds: TSounds = [
 
 export const playSound = (sound: number): void => {
   if (sound && sounds[sound] && sounds[sound][1]) {
-    (new Audio(sounds[sound][1])).play();
+    (new Audio(sounds[sound][2])).play();
   }
 };

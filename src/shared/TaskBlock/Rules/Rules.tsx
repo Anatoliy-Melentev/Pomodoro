@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import { EColor, Text } from '../../Text';
-import { EIcon, Icon } from "../../Icon";
 import styles from './rules.sass';
 
 interface IRules {
@@ -34,7 +32,6 @@ export function Rules() {
           ))}
         </ul>
       </div>
-
     </div>
   );
 }

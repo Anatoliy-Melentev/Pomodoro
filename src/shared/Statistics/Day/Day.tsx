@@ -1,10 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { declinationOfNumber } from '../../../utils/js/declinationOfNumber';
+import { checkLight } from '../../../store/preferences/selectors';
 import { EColor, Text } from '../../Text';
 import { EIcon, Icon } from '../../Icon';
 import styles from './day.sass';
-import {useSelector} from "react-redux";
-import {checkLight} from "../../../store/preferences/selectors";
 
 const tomatoName = [' помидор', ' помидора', ' помидоров'];
 const hourName = [' часа', '-х часов', ' часов'];

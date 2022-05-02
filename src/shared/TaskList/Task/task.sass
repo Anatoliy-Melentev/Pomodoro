@@ -10,6 +10,9 @@
   background-color: $white
   border-top: solid 1px $greyC4
   border-bottom: solid 1px $greyC4
+  @include mini
+    padding: 0 10px
+
 [data-theme='off']
   .task
     background-color: $i-white
@@ -19,6 +22,7 @@
 .taskName
   width: 100%
   color: $black
+
 [data-theme='off']
   .taskName
     color: $i-black
@@ -37,6 +41,7 @@
   border: solid 1px $greyC4
   margin-right: 10px
   color: $black
+
 [data-theme='off']
   .count
     border: solid 1px $i-greyC4
@@ -46,6 +51,7 @@
   background-color: $green
   border: none
   fill: $white
+
 [data-theme='off']
   .completed
     background-color: $i-green
@@ -69,6 +75,8 @@
 .dropDown
   margin-left: -77px
   margin-top: 50px
+  @include mobile
+    margin-left: -143px
 
 .menu:before
   position: absolute
@@ -81,6 +89,9 @@
   margin-top: -12px
   @include size(9, 9)
   transform: rotate(45deg)
+  @include mobile
+    margin-left: 120px
+
 [data-theme='off']
   .menu:before
     background-color: $i-white
@@ -91,6 +102,7 @@
   width: 100%
   background-color: $white
   padding: 0 14px
+
 [data-theme='off']
   .item
     background-color: $i-white
@@ -98,6 +110,7 @@
 
 .item:hover
   background-color: $greyF4
+
 [data-theme='off']
   .item:hover
     background-color: $i-greyF4

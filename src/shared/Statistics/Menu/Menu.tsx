@@ -35,7 +35,7 @@ export function Menu({ setWeekCount }: IMenuProps) {
           button={(
             <div className={styles.menuBtn}>
               <Text size={16} className={styles.menuText}>{name}</Text>
-              <Icon name={EIcon.check} size={16} />
+              <Icon name={EIcon.check} size={16} className={styles.check} />
             </div>
           )}
         >

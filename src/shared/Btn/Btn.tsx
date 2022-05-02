@@ -13,7 +13,7 @@ interface IBtnProps {
 }
 
 export function Btn({
-  type, children, disabled, isCancel, onClick, className,
+  type = 'button', children, disabled = false, isCancel = false, onClick = emptyFn, className = undefined,
 }: IBtnProps) {
   const classes = classNames(
     styles.btn,

@@ -7,9 +7,10 @@
   padding: 25px
   margin-top: 32px
   @include flex-space()
-  align-items: center
+  align-items: flex-start
   position: relative
   @include tablet-mini
+    height: 200px
     width: 32%
     padding: 20px
   @include mobile
@@ -39,6 +40,10 @@
     @include font(44,56,400)
   @include mobile
     @include font(72,86,400)
+
+[data-theme='off']
+  .value
+    color: $i-black
 
 .orange
   background-color: $orange
@@ -87,20 +92,22 @@
 
 .grey
   background-color: $greyF4
+
 [data-theme='off']
   .grey
     background-color: $i-greyF4
+
 .grey *
   stroke: $greyC4
   fill: transparent
+
 [data-theme='off']
   .grey *
     stroke: $i-greyC4
 
 .icon
   @include size(115, 115)
-  position: absolute
-  right: 25px
+  @include offset(auto, 25, 25)
 
 .text
   z-index: 1
@@ -108,12 +115,14 @@
 
 .info
   margin-top: -5px
-  margin-left: 5px
+  margin-left: 10px
+
 .info *
-  fill: $black
+  fill: $grey99
+
 [data-theme='off']
   .info *
-    fill: $i-black
+    fill: $i-grey99
 
 .tooltip
   @include flex-center()
@@ -125,6 +134,7 @@
   padding: 25px
   @include font(24,33,400)
   display: none
+
 .tooltip > span
   text-shadow: 0 0 5px $black, 0 0 5px $black, 0 0 5px $black
 

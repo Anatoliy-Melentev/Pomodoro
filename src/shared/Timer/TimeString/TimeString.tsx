@@ -1,11 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect } from 'react';
 import classNames from 'classnames';
 import { bounceIn } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
 import { emptyFn } from '../../../utils/js/emptyFn';
+import { taskContext } from '../../context/taskContext';
 import { Plus } from '../../Plus';
 import styles from './timestring.sass';
-import {taskContext} from "../../context/taskContext";
 
 interface ITimeStringProps {
   countTime: number;

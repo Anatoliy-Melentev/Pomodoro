@@ -21,11 +21,11 @@ const style = StyleSheet.create({
   },
   gone: {
     animationName: to,
-    animationDuration: '500ms',
+    animationDuration: '600ms',
   },
   go: {
     animationName: from,
-    animationDuration: '500ms',
+    animationDuration: '600ms',
   },
 });
 

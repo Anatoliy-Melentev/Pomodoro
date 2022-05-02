@@ -40,6 +40,13 @@
   .menuBtn, .item
     background-color: $i-greyF4
 
+.check
+  stroke: $red
+
+[data-theme='off']
+  .check
+    stroke: $i-red
+
 .item
   justify-content: start
   padding-left: 6px
@@ -75,4 +82,5 @@
 .dropdown button
   @include mobile
     @include flex-space(between, row-reverse)
+    white-space: nowrap
 
