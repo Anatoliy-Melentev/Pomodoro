@@ -75,3 +75,15 @@ export const setBaseCountBreaks: ActionCreator<TSetCountBreakAction> = (countBre
   type: SET_COUNT_BREAKS,
   payload: { countBreaks },
 });
+
+export const SET_START_PREFERENCES = 'TIMER::SET_START_PREFERENCES';
+
+export type TSetStartPreferAction = {
+  type: typeof SET_START_PREFERENCES;
+  payload: { countBreaks: number };
+};
+
+export const setStartPreferences: ActionCreator<TSetStartPreferAction> = (countBreaks: number) => ({
+  type: SET_START_PREFERENCES,
+  payload: { countBreaks },
+});

@@ -9,7 +9,13 @@ import {
   selectBreakType, selectPauseTime, selectStage, selectStartTime,
 } from '../../store/timer/selectors';
 import {
-  addMoreTime, addStartTime, changeStage, clearAllTime, setPauseTime, setStartTime,
+  addMoreTime,
+  addStartTime,
+  changeStage,
+  clearAllTime,
+  setPauseTime,
+  setStartTime,
+  setStartPreferences,
 } from '../../store/timer/actions';
 import {
   addPauseTime, addStop, addTomatoTime, addTotalTime, createRecordStat,
@@ -86,9 +92,13 @@ export function Timer() {
         if (setAddCompleted) {
           setAddCompleted(true);
         }
-      }, 500);
-    } else {
+      }, 600);
+    } else if (workStage) {
       dispatch(addStop());
+      dispatch(addTotalTime(getCurSeconds() - startTime - allAdditingTime));
+    } else {
+      dispatch(changeStage(countBreaks));
+      dispatch(addCompletedCount(needDo));
       dispatch(addTotalTime(getCurSeconds() - startTime - allAdditingTime));
     }
   };
@@ -102,9 +112,7 @@ export function Timer() {
     }
   };
 
-  setInterval(() => setSeconds(new Date().getTime()), 1000);
-
-  useEffect(() => {
+  const changeTimer = () => {
     if (!startTime) {
       return;
     }
@@ -138,7 +146,17 @@ export function Timer() {
     } else {
       setCountTime(startTime + getTimeOut() - pauseTime);
     }
-  }, [seconds]);
+  };
+
+  setInterval(() => setSeconds(new Date().getTime()), 1000);
+
+  useEffect(() => changeTimer(), [seconds]);
+
+  useEffect(() => {
+    if (!needDo || !tasks[needDo]) {
+      dispatch(setStartPreferences());
+    }
+  }, [needDo]);
 
   useEffect(() => setCountTime(getTimeOut()), [workStage]);
   useEffect(() => {
@@ -156,11 +174,18 @@ export function Timer() {
         if (setAddCompleted) {
           setAddCompleted(true);
         }
-      }, 500);
+      }, 600);
     }
   }, [tasks]);
 
-  useMountEffect(() => !isCurState && dispatch(createRecordStat()));
+  useMountEffect(() => {
+    if (!isCurState) {
+      dispatch(createRecordStat());
+      dispatch(setStartPreferences());
+    }
+
+    changeTimer();
+  });
 
   const isStarted = !!startTime;
   const isPaused = !!pauseTime;
@@ -192,7 +217,7 @@ export function Timer() {
                       <span className={styles.taskName}>{tasks[needDo].name}</span>
                     </>
                   )}
-                  {isStarted && !workStage && (
+                  {!workStage && (
                     <span className={styles.listStyle}>
                       {longBreak ? 'Длинный' : 'Короткий'}
                       &nbsp;перерыв

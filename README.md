@@ -1,8 +1,9 @@
-npm i -D webpack-dev-middleware webpack-hot-middleware react-hot-loader
-npm i -D @hot-loader/react-dom --force
-npm i -D clean-webpack-plugin
+Трекер задач с таймером по методу "Помодоро" - pomodoro_box
 
-npm i -D style-loader css-loader
-npm i --save-dev mini-css-extract-plugin
-npm i -D sass sass-loader
-npm i  jest ts-jest @types/jest
+Запуск проекта (при настроенном подключении по ssh)
+1. Перейти в папку домена на хостинге
+2. Склонировать проект git clone git@github.com:Anatoliy-Melentev/Pomodoro.git .
+3. Установка зависимостей npm i
+4. Запуск проекта npm run build:prod
+5. Настройка сервера
+6. Для nodejs указать скрипт запуска dist/server/server.js
