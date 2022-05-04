@@ -1,7 +1,13 @@
 import { Reducer } from 'redux';
 import { getCurSeconds } from '../../utils/js/getCurSeconds';
 import {
-  SET_START_TIME, ADD_START_TIME, SET_PAUSE_TIME, CLEAR_ALL_TIME, CHANGE_STAGE, ADD_MORE_START_TIME,
+  SET_START_TIME,
+  ADD_START_TIME,
+  SET_PAUSE_TIME,
+  CLEAR_ALL_TIME,
+  CHANGE_STAGE,
+  ADD_MORE_START_TIME,
+  SET_START_PREFERENCES,
 } from './actions';
 import { SET_COUNT_BREAKS } from '../preferences/actions';
 
@@ -64,6 +70,15 @@ export const timerReducer: Reducer<ITimer, TAction> = (
         ...storeState,
         workStage: !storeState.workStage,
         countBreaks: storeState.workStage ? count : storeState.countBreaks,
+      };
+    }
+    case SET_START_PREFERENCES: {
+      return {
+        ...storeState,
+        startDT: 0,
+        pauseDT: 0,
+        workStage: true,
+        countBreaks: payload.countBreaks,
       };
     }
     default:

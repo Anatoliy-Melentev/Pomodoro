@@ -1,7 +1,7 @@
+const { NODE_ENV } = process.env;
+const GLOBAL_CSS_REGEXP = /\.global\.sass$/;
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const NODE_ENV = process.env.NODE_ENV;
-const GLOBAL_CSS_REGEXP = /\.global\.sass$/;
 
 module.exports = {
   target: 'node',
@@ -23,7 +23,7 @@ module.exports = {
             mode: 'local',
             localIdentName: '[name]__[local]--[hash:base64:5]',
           },
-        }
+        },
       }, 'sass-loader'],
       exclude: GLOBAL_CSS_REGEXP,
     }, {
@@ -45,7 +45,7 @@ module.exports = {
           name: 'img/[hash]-[name].[ext]',
         },
       }],
-    }]
+    }],
   },
-  optimization: { minimize: false }
+  optimization: { minimize: false },
 };

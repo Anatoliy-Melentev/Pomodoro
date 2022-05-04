@@ -31,15 +31,15 @@ compiler.run((err) => {
     console.log('Compilation error: ', err);
   }
 
-  compiler.watch({}, (err) => {
-    if (err) {
-      console.log('Compilation error: ', err);
+  compiler.watch({}, (error) => {
+    if (error) {
+      console.log('Compilation error: ', error);
     }
     console.log('Compilation was successfully');
   });
 
   nodemon({
-    script:  path.resolve(__dirname, '../dist/server/server.js'),
+    script: path.resolve(__dirname, '../dist/server/server.js'),
     watch: [
       path.resolve(__dirname, '../dist/server'),
       path.resolve(__dirname, '../dist/client'),

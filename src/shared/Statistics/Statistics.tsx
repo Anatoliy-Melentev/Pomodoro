@@ -33,7 +33,7 @@ export function Statistics() {
           <Week
             active={active}
             setActive={setActive}
-            total={weekStat.map((day) => day.totalDT / 60)}
+            total={weekStat.map((day) => Math.trunc(day.totalDT / 60))}
           />
         </div>
       </div>
