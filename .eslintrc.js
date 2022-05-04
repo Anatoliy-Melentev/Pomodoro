@@ -32,5 +32,12 @@ module.exports = {
     'import/extensions': ['error', 'ignorePackages', {
       js: 'never', jsx: 'never', ts: 'never', tsx: 'never', '': 'never', 'index.tsx': 'never',
     }],
+    'import/no-unresolved': [
+      2,
+      { caseSensitive: false },
+    ],
+  },
+  settings: {
+    'import/resolver': 'webpack',
   },
 };
