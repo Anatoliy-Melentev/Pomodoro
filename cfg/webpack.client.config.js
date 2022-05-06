@@ -20,10 +20,10 @@ module.exports = {
     alias: { 'react-dom': IS_DEV ? '@hot-loader/react-dom' : 'react-dom' },
   },
   mode: NODE_ENV ? NODE_ENV : 'development',
-  entry: IS_DEV ? [
+  entry: [
     path.resolve(__dirname, '../src/client/index.jsx'),
     'webpack-hot-middleware/client?path=http://localhost:3001/static/__webpack_hmr',
-  ] : [],
+  ],
   output: {
     path: path.resolve(__dirname, '../dist/client'),
     filename: 'client.js',
