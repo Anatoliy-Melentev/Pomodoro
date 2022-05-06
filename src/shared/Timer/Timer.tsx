@@ -101,6 +101,8 @@ export function Timer() {
       dispatch(addCompletedCount(needDo));
       dispatch(addTotalTime(getCurSeconds() - startTime - allAdditingTime));
     }
+
+    setAllAdditingTime(0);
   };
 
   const addTime = () => {
@@ -182,6 +184,7 @@ export function Timer() {
     if (!isCurState) {
       dispatch(createRecordStat());
       dispatch(setStartPreferences());
+      setAllAdditingTime(0);
     }
 
     changeTimer();
